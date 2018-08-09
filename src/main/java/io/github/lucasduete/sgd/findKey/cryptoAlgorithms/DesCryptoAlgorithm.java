@@ -24,8 +24,8 @@ public class DesCryptoAlgorithm {
         Cipher cipher = Cipher.getInstance("DES/ECB/PKCS5Padding");
         cipher.init(Cipher.DECRYPT_MODE, key);
 
-//        byte[] cifredByteText = Base64.getDecoder().decode(cifredText);
-        byte[] byteText = cipher.doFinal(cifredText.getBytes("UTF8"));
+        byte[] cifredByteText = Base64.getDecoder().decode(cifredText);
+        byte[] byteText = cipher.doFinal(cifredByteText);
 
         return new String(byteText);
     }
